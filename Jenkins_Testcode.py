@@ -1,35 +1,25 @@
-import random
+# Bubble sort in Python
 
-num = random.randint(1,100)
-print("WELCOME TO GUESS ME!")
-print("I'm thinking of a number between 1 and 100")
-print("If your guess is more than 10 away from my number, I'll tell you you're COLD")
-print("If your guess is within 10 of my number, I'll tell you you're WARM")
-print("If your guess is farther than your most recent guess, I'll say you're getting COLDER")
-print("If your guess is closer than your most recent guess, I'll say you're getting WARMER")
-print("LET'S PLAY!")
-guesses = [0]
-while True:
-
-    guess = int(input("I'm thinking of a number between 1 and 100.\n  What is your guess? "))
-
-    if guess < 1 or guess > 100:
-        print('OUT OF BOUNDS! Please try again: ')
-        continue
+def bubbleSort(array):
+    
+  
+  for i in range(len(array)):
 
 
-    if guess==num:
-        print(f'congratulations!! you guessed it right only in {len(guesses)} guesses!')
-        break
-    guesses.append(guess)
-    if guesses[-2]:
-        if abs(num-guess) < abs(num-guesses[-2]):
-            print('WARMER!')
-        else:
-            print('COLDER!')
+    for j in range(0, len(array) - i - 1):
 
-    else:
-        if abs(num-guess) <= 10:
-            print('WARM!')
-        else:
-            print('COLD!')
+      
+      if array[j] > array[j + 1]:
+
+      
+        temp = array[j]
+        array[j] = array[j+1]
+        array[j+1] = temp
+
+
+data = [-2, 45, 0, 11, -9]
+
+bubbleSort(data)
+
+print('Sorted Array in Ascending Order:')
+print(data)
